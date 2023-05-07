@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConnessioneService } from '../connessione.service';
+import { ConnessioneService } from '../../connessione.service';
 
 @Component({
   selector: 'app-acquisizione',
