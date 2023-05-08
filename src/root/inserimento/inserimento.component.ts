@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { Libro } from '../libro';
+import { Archivio } from '../archivio';
 @Component({
   selector: 'app-inserimento',
   templateUrl: './inserimento.component.html',
@@ -13,9 +14,22 @@ export class InserimentoComponent implements OnInit {
   @Output() cambioVista = new EventEmitter<boolean>();
 
   cambiaVista() {
-    this.visita = !this.visita;
     this.cambioVista.emit(this.visita);
   }
+  inserisciDati() {
+    var titolo: HTMLInputElement = document.getElementById(
+      'titolo'
+    ) as HTMLInputElement;
+    var autore: HTMLInputElement = document.getElementById(
+      'autore'
+    ) as HTMLInputElement;
+    var posizione: HTMLInputElement = document.getElementById(
+      'posizione'
+    ) as HTMLInputElement;
+    new Libro(titolo.value, autore.value, posizione.value, 'no');
+    this.visita = true;
+  }
+
   constructor() {}
 
   ngOnInit() {}
