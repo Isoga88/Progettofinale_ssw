@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class RootComponent implements OnInit {
   visita: boolean = true;
+
   constructor() {}
 
   ngOnInit() {}

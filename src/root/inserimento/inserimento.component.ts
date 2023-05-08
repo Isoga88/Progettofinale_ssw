@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,7 +9,13 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class InserimentoComponent implements OnInit {
-  visita: boolean = true;
+  @Input() visita: boolean;
+  @Output() cambioVista = new EventEmitter<boolean>();
+
+  cambiaVista() {
+    this.visita = !this.visita;
+    this.cambioVista.emit(this.visita);
+  }
   constructor() {}
 
   ngOnInit() {}
