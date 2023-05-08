@@ -26,8 +26,15 @@ export class InserimentoComponent implements OnInit {
     var posizione: HTMLInputElement = document.getElementById(
       'posizione'
     ) as HTMLInputElement;
-    new Libro(titolo.value, autore.value, posizione.value, 'no');
-    this.visita = true;
+    const libretto = new Libro(
+      titolo.value,
+      autore.value,
+      posizione.value,
+      'no'
+    );
+    let archivio = new Archivio();
+    archivio.aggiungiLibro(libretto);
+    console.log(archivio);
   }
 
   constructor() {}
