@@ -9,9 +9,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class RicercaComponent implements OnInit {
-  @Input() visita: boolean;
-  constructor() {
-  }
+  @Input() visita: number;
+  constructor() {}
 
   ngOnInit() {}
 }

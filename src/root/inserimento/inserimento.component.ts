@@ -12,13 +12,17 @@ import { ConnessioneService } from '../connessione.service';
   providers: [ConnessioneService],
 })
 export class InserimentoComponent implements OnInit {
-  @Input() visita: boolean;
+  @Input() visita: number;
   @Input() mioArchivio: ConnessioneService;
-  @Output() cambioVista = new EventEmitter<boolean>();
+  @Output() cambioVista = new EventEmitter<number>();
+  @Output() doIndietro = new EventEmitter<number>();
   @Output() cambiaArchivio = new EventEmitter<Libro>();
 
   cambiaVista() {
     this.cambioVista.emit(this.visita);
+  }
+  indietro() {
+    this.doIndietro.emit(this.visita);
   }
   inserisciDati() {
     var titolo: HTMLInputElement = document.getElementById(

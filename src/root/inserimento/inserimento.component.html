@@ -1,5 +1,5 @@
-<button *ngIf="visita == true" (click)="cambiaVista()">Inserimento</button>
-<div *ngIf="visita == false">
+<button *ngIf="visita == 0" (click)="cambiaVista()">Inserimento</button>
+<div *ngIf="visita == 1">
   <div>
     <label for="autore">Autore:</label>
     <input type="text" id="autore" /><br />
@@ -9,5 +9,5 @@
     <input type="text" id="posizione" /><br />
   </div>
   <button (click)="inserisciDati()">inserisci</button> <br />
-  <button (click)="cambiaVista()">esci</button>
+  <button (click)="indietro()">esci</button>
 </div>

@@ -1,8 +1,8 @@
 import { Libro } from './libro';
 export class Archivio {
-  archivio: Array<Libro> = [];
+  archivio1: Array<Libro> = [];
   constructor() {}
   public aggiungiLibro(libro: Libro) {
-    this.archivio.push(libro);
+    this.archivio1.push(libro);
   }
 }

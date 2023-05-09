@@ -6,13 +6,20 @@ import { Libro } from './libro';
   providedIn: 'root',
 })
 export class ConnessioneService {
-  arch = [
-    new Libro('Title', 'Author', 'posizion', 'prestit'),
-    new Libro('Title2', 'Author2', 'posizion2', 'prestit2'),
-    new Libro('Title3', 'Author3', 'posizion3', 'prestit3'),
-  ];
   archivio = new Archivio();
-  constructor() {}
-  public aggiungiLibro(libro: Libro) {}
+  constructor() {
+    this.archivio.aggiungiLibro(
+      new Libro('Title', 'Author', 'posizion', 'prestit')
+    );
+    this.archivio.aggiungiLibro(
+      new Libro('Title2', 'Author2', 'posizion2', 'prestit2')
+    );
+    this.archivio.aggiungiLibro(
+      new Libro('Title3', 'Author3', 'posizion3', 'prestit3')
+    );
+  }
+  public aggiungiLibro(libro: Libro) {
+    this.archivio.aggiungiLibro(libro);
+  }
   public eliminaLibro(libro: Libro) {}
 }

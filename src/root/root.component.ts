@@ -15,12 +15,11 @@ import { ConnessioneService } from './connessione.service';
   providers: [ConnessioneService],
 })
 export class RootComponent implements OnInit {
-  visita: boolean = true;
+  visita: number = 0;
   mioArchivio = new ConnessioneService();
   cambiaArchivio(libretto: Libro) {
     console.log(libretto);
     this.mioArchivio.aggiungiLibro(libretto);
-    console.log(this.mioArchivio);
     console.log(this.mioArchivio);
   }
   constructor() {}

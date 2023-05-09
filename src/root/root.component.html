@@ -3,7 +3,8 @@
 <app-inserimento
   [visita]="visita"
   [mioArchivio]="mioArchivio"
-  (cambioVista)="visita = !visita"
+  (cambioVista)="visita = 1"
+  (doIndietro)="visita = 0"
   (cambiaArchivio)="cambiaArchivio($event)"
 ></app-inserimento>
 <div></div>
