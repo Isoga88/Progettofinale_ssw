@@ -11,7 +11,7 @@ export class ConnessioneService {
     new Libro('Title2', 'Author2', 'posizion2', 'prestit2'),
     new Libro('Title3', 'Author3', 'posizion3', 'prestit3'),
   ];
-  archivio = new Archivio(this.arch);
+  archivio = new Archivio();
   constructor() {}
   public aggiungiLibro(libro: Libro) {}
   public eliminaLibro(libro: Libro) {}
