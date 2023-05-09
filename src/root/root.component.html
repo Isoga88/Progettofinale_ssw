@@ -2,5 +2,8 @@
 <app-ricerca [visita]="visita"></app-ricerca>
 <app-inserimento
   [visita]="visita"
+  [mioArchivio]="mioArchivio"
   (cambioVista)="visita = !visita"
+  (cambiaArchivio)="cambiaArchivio($event)"
 ></app-inserimento>
+<div></div>

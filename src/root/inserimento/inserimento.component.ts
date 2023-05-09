@@ -2,16 +2,20 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Libro } from '../libro';
 import { Archivio } from '../archivio';
+import { ConnessioneService } from '../connessione.service';
 @Component({
   selector: 'app-inserimento',
   templateUrl: './inserimento.component.html',
   styleUrls: ['./inserimento.component.css'],
   standalone: true,
   imports: [CommonModule],
+  providers: [ConnessioneService],
 })
 export class InserimentoComponent implements OnInit {
   @Input() visita: boolean;
+  @Input() mioArchivio: ConnessioneService;
   @Output() cambioVista = new EventEmitter<boolean>();
+  @Output() cambiaArchivio = new EventEmitter<Libro>();
 
   cambiaVista() {
     this.cambioVista.emit(this.visita);
@@ -32,9 +36,7 @@ export class InserimentoComponent implements OnInit {
       posizione.value,
       'no'
     );
-    let archivio = new Archivio();
-    archivio.aggiungiLibro(libretto);
-    console.log(archivio);
+    this.cambiaArchivio.emit(libretto);
   }
 
   constructor() {}
