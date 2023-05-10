@@ -29,7 +29,7 @@ export class RootComponent implements OnInit {
   }
   funzione() {
     this.ws.getData().subscribe({
-      next: (x: AjaxResponse<any>) => console.log(x),
+      next: (x: AjaxResponse<any>) => console.log(x.response),
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
