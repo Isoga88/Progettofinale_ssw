@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Archivio } from './archivio';
 import { Libro } from './libro';
 import { ConnessioneService } from './connessione.service';
+import {ProvaService} from './prova.service'
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ export class RootComponent implements OnInit {
     console.log(this.mioArchivio.archivio.archivio1);
   }
 
-  constructor() {}
+  constructor(private ws: ProvaService) {}
 
   ngOnInit() {}
 }
