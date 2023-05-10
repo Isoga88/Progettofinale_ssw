@@ -18,13 +18,14 @@ export class RootComponent implements OnInit {
   visita: number = 0;
   mioArchivio = new ConnessioneService();
   cambiaVista(numero: number) {
-    this.visita = numero
+    this.visita = numero;
   }
   cambiaArchivio(libretto: Libro) {
     console.log(libretto);
     this.mioArchivio.aggiungiLibro(libretto);
-    console.log(this.mioArchivio);
+    console.log(this.mioArchivio.archivio.archivio1);
   }
+
   constructor() {}
 
   ngOnInit() {}
