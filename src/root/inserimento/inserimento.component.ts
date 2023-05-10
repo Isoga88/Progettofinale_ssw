@@ -18,11 +18,9 @@ export class InserimentoComponent implements OnInit {
   @Output() doIndietro = new EventEmitter<number>();
   @Output() cambiaArchivio = new EventEmitter<Libro>();
 
-  cambiaVista() {
+  cambiaVista(numero: number) {
+    this.visita = numero;
     this.cambioVista.emit(this.visita);
-  }
-  indietro() {
-    this.doIndietro.emit(this.visita);
   }
   inserisciDati() {
     var titolo: HTMLInputElement = document.getElementById(
