@@ -18,7 +18,6 @@ export class InserimentoComponent implements OnInit {
   @Input() mioArchivio: ConnessioneService;
   @Output() cambioVista = new EventEmitter<number>();
   @Output() doIndietro = new EventEmitter<number>();
-  @Output() cambiaArchivio = new EventEmitter<Libro>();
 
   cambiaVista(numero: number) {
     this.visita = numero;
@@ -40,7 +39,6 @@ export class InserimentoComponent implements OnInit {
       posizione.value,
       'no'
     );
-    this.cambiaArchivio.emit(libretto);
     this.mioArchivio.archivio.aggiungiLibro(libretto);
     console.log(this.mioArchivio.archivio.archivio1);
     this.db.submitData(this.mioArchivio.archivio.archivio1).subscribe({

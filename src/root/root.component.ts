@@ -22,10 +22,8 @@ export class RootComponent implements OnInit {
   cambiaVista(numero: number) {
     this.visita = numero;
   }
-  cambiaArchivio(libretto: Libro) {
-    this.mioArchivio.aggiungiLibro(libretto);
-  }
   funzione() {
+    console.log(this.mioArchivio);
     this.db.getData().subscribe({
       next: (x: AjaxResponse<any>) => console.log(x.response),
       error: (err) =>
