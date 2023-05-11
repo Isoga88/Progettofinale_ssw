@@ -4,7 +4,6 @@ import { RicercaComponent } from './ricerca/ricerca.component';
 import { CommonModule } from '@angular/common';
 import { Archivio } from './archivio';
 import { Libro } from './libro';
-import { ConnessioneService } from './connessione.service';
 import { AjaxResponse } from 'rxjs/ajax';
 import { DatabaseService } from './database.service';
 
@@ -14,11 +13,10 @@ import { DatabaseService } from './database.service';
   styleUrls: ['./root.component.css'],
   imports: [CommonModule, RicercaComponent, InserimentoComponent],
   standalone: true,
-  providers: [ConnessioneService],
 })
 export class RootComponent implements OnInit {
   visita: number = 0;
-  mioArchivio = new ConnessioneService();
+  mioArchivio = new Archivio();
   cambiaVista(numero: number) {
     this.visita = numero;
   }

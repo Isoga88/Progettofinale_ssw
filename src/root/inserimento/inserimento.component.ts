@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Libro } from '../libro';
 import { Archivio } from '../archivio';
-import { ConnessioneService } from '../connessione.service';
 import { DatabaseService } from '../database.service';
 import { AjaxResponse } from 'rxjs/ajax';
 @Component({
@@ -11,11 +10,10 @@ import { AjaxResponse } from 'rxjs/ajax';
   styleUrls: ['./inserimento.component.css'],
   standalone: true,
   imports: [CommonModule],
-  providers: [ConnessioneService],
 })
 export class InserimentoComponent implements OnInit {
   @Input() visita: number;
-  @Input() mioArchivio: ConnessioneService;
+  @Input() mioArchivio: Archivio;
   @Output() cambioVista = new EventEmitter<number>();
   @Output() doIndietro = new EventEmitter<number>();
 
@@ -39,9 +37,9 @@ export class InserimentoComponent implements OnInit {
       posizione.value,
       'no'
     );
-    this.mioArchivio.archivio.aggiungiLibro(libretto);
-    console.log(this.mioArchivio.archivio.archivio1);
-    this.db.submitData(this.mioArchivio.archivio.archivio1).subscribe({
+    this.mioArchivio.aggiungiLibro(libretto);
+    console.log(this.mioArchivio.archivio1);
+    this.db.submitData(this.mioArchivio.archivio1).subscribe({
       next: (x: AjaxResponse<any>) => console.log(x.response),
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
