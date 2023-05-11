@@ -34,6 +34,13 @@ export class RootComponent implements OnInit {
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
   }
+  funzione2() {
+    this.ws.submitData().subscribe({
+      next: (x: AjaxResponse<any>) => console.log(x.response),
+      error: (err) =>
+        console.error('Observer got an error: ' + JSON.stringify(err)),
+    });
+  }
 
   constructor(private ws: ProvaService) {}
 
