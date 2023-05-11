@@ -3,13 +3,9 @@ import { Observable } from 'rxjs';
 import { ajax, AjaxResponse } from 'rxjs/ajax';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'any',
 })
-export class ProvaService {
-  boh: Array<object> = [
-    { id: 1, nome: 'Oggetto 1' },
-    { id: 2, nome: 'Oggetto 2' },
-  ];
+export class DatabaseService {
   URLget: string =
     'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/' +
     'get' +
@@ -26,9 +22,8 @@ export class ProvaService {
       crossDomain: true,
     });
   }
-  // Converti l'array in formato JSON
-  public submitData(): Observable<AjaxResponse<any>> {
-    const data = JSON.stringify(this.boh);
+  public submitData(datas: Array<object>): Observable<AjaxResponse<any>> {
+    const data = JSON.stringify(datas);
     return ajax({
       method: 'POST',
       url: this.URLset,

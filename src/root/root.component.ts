@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Archivio } from './archivio';
 import { Libro } from './libro';
 import { ConnessioneService } from './connessione.service';
-import { ProvaService } from './prova.service';
 import { AjaxResponse } from 'rxjs/ajax';
+import { DatabaseService } from './database.service';
 
 @Component({
   selector: 'app-root',
@@ -23,26 +23,17 @@ export class RootComponent implements OnInit {
     this.visita = numero;
   }
   cambiaArchivio(libretto: Libro) {
-    console.log(libretto);
     this.mioArchivio.aggiungiLibro(libretto);
-    console.log(this.mioArchivio.archivio.archivio1);
   }
   funzione() {
-    this.ws.getData().subscribe({
-      next: (x: AjaxResponse<any>) => console.log(x.response),
-      error: (err) =>
-        console.error('Observer got an error: ' + JSON.stringify(err)),
-    });
-  }
-  funzione2() {
-    this.ws.submitData().subscribe({
+    this.db.getData().subscribe({
       next: (x: AjaxResponse<any>) => console.log(x.response),
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
   }
 
-  constructor(private ws: ProvaService) {}
+  constructor(private db: DatabaseService) {}
 
   ngOnInit() {}
 }

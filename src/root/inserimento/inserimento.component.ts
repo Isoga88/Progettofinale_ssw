@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Libro } from '../libro';
 import { Archivio } from '../archivio';
 import { ConnessioneService } from '../connessione.service';
+import { DatabaseService } from '../database.service';
+import { AjaxResponse } from 'rxjs/ajax';
 @Component({
   selector: 'app-inserimento',
   templateUrl: './inserimento.component.html',
@@ -39,9 +41,16 @@ export class InserimentoComponent implements OnInit {
       'no'
     );
     this.cambiaArchivio.emit(libretto);
+    this.mioArchivio.archivio.aggiungiLibro(libretto);
+    console.log(this.mioArchivio.archivio.archivio1);
+    this.db.submitData(this.mioArchivio.archivio.archivio1).subscribe({
+      next: (x: AjaxResponse<any>) => console.log(x.response),
+      error: (err) =>
+        console.error('Observer got an error: ' + JSON.stringify(err)),
+    });
   }
 
-  constructor() {}
+  constructor(private db: DatabaseService) {}
 
   ngOnInit() {}
 }
