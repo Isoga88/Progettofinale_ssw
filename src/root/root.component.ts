@@ -16,7 +16,7 @@ import { DatabaseService } from './database.service';
 })
 export class RootComponent implements OnInit {
   visita: number = 0;
-  mioArchivio = new Archivio();
+  mioArchivio = new Archivio(this.db);
   cambiaVista(numero: number) {
     this.visita = numero;
   }
