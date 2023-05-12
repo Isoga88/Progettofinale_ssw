@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,13 @@ import { CommonModule } from '@angular/common';
 })
 export class RicercaComponent implements OnInit {
   @Input() visita: number;
+  @Output() cambioVista = new EventEmitter<number>();
+  cambiaVista(numero: number) {
+    this.visita = numero;
+    this.cambioVista.emit(this.visita);
+  }
+  occorrenze: number
+  
   constructor() {}
 
   ngOnInit() {}

@@ -1,5 +1,8 @@
 <h1>Progetto biblioteca</h1>
-<app-ricerca [visita]="visita"></app-ricerca>
+<app-ricerca
+  [visita]="visita"
+  (cambioVista)="cambiaVista($event)"
+></app-ricerca>
 <app-inserimento
   [visita]="visita"
   [mioArchivio]="mioArchivio"
