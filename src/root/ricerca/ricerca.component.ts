@@ -15,8 +15,43 @@ export class RicercaComponent implements OnInit {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
   }
-  occorrenze: number
-  
+  occorrenze: number = 0;
+  libri = [
+    {
+      titolo: 'rgfygrur',
+      autore: 'uiwrhui',
+      posizione: 'iurugui',
+      prestito: 'no',
+    },
+    {
+      titolo: 'uihrui',
+      autore: 'urh',
+      posizione: 'iuruguiuihg',
+      prestito: 'no',
+    },
+    {
+      titolo: 'uihrui',
+      autore: 'urghu',
+      posizione: 'iuruguiuihg',
+      prestito: 'no',
+    },
+  ];
+  cercaLibro() {
+    let nodoSequenza: HTMLInputElement = document.getElementById(
+      'cerca'
+    ) as HTMLInputElement;
+    let sequenza = nodoSequenza.value;
+    const libriCorrispondenti = this.libri.filter((libro) =>
+      (libro.titolo + libro.autore).toLowerCase().includes(sequenza)
+    );
+
+    if (libriCorrispondenti.length === 1) {
+      console.log(libriCorrispondenti);
+    } else {
+      this.occorrenze = libriCorrispondenti.length;
+      console.log(libriCorrispondenti.length);
+    }
+  }
   constructor() {}
 
   ngOnInit() {}
