@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Archivio } from '../archivio';
 
 @Component({
   selector: 'app-ricerca',
@@ -10,33 +11,16 @@ import { CommonModule } from '@angular/common';
 })
 export class RicercaComponent implements OnInit {
   @Input() visita: number;
+  @Input() mioArchivio: Archivio;
   @Output() cambioVista = new EventEmitter<number>();
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
   }
   occorrenze: number = 0;
-  libri = [
-    {
-      titolo: 'rgfygrur',
-      autore: 'uiwrhui',
-      posizione: 'iurugui',
-      prestito: 'no',
-    },
-    {
-      titolo: 'uihrui',
-      autore: 'urh',
-      posizione: 'iuruguiuihg',
-      prestito: 'no',
-    },
-    {
-      titolo: 'uihrui',
-      autore: 'urghu',
-      posizione: 'iuruguiuihg',
-      prestito: 'no',
-    },
-  ];
+  libri = this.mioArchivio;
   cercaLibro() {
+    console.log(this.libri);
     let nodoSequenza: HTMLInputElement = document.getElementById(
       'cerca'
     ) as HTMLInputElement;

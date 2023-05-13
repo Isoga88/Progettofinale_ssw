@@ -38,8 +38,8 @@ export class InserimentoComponent implements OnInit {
       'no'
     );
     this.mioArchivio.aggiungiLibro(libretto);
-    console.log(this.mioArchivio.archivio1);
-    this.db.submitData(this.mioArchivio.archivio1).subscribe({
+    console.log(this.mioArchivio);
+    this.db.submitData(this.mioArchivio.archivio).subscribe({
       next: (x: AjaxResponse<any>) => console.log(x.response),
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
