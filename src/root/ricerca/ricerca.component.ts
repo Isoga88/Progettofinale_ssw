@@ -18,7 +18,12 @@ export class RicercaComponent implements OnInit {
     this.cambioVista.emit(this.visita);
   }
   occorrenze: number = 0;
-  libri = this.mioArchivio;
+  libri = [
+    {
+      titolo: 'idue',
+      autore: 'euihi',
+    },
+  ];
   cercaLibro() {
     console.log(this.libri);
     let nodoSequenza: HTMLInputElement = document.getElementById(
