@@ -19,7 +19,6 @@ export class RootComponent implements OnInit {
   mioArchivio = new Archivio(this.db);
   cambiaVista(numero: number) {
     this.visita = numero;
-    console.log(this.mioArchivio);
   }
   funzione() {
     this.db.getData().subscribe({

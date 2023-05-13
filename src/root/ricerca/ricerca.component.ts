@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Archivio } from '../archivio';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-ricerca',
@@ -11,26 +12,21 @@ import { Archivio } from '../archivio';
 })
 export class RicercaComponent implements OnInit {
   @Input() visita: number;
-  @Input() mioArchivio: Archivio;
-  @Output() cambioVista = new EventEmitter<number>();
+  @Input() mioArchivio: Archivio = new Archivio((this.db));
+  @Output() cambioVista = new EventEmitter<number>;
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
   }
   occorrenze: number = 0;
-  libri = [
-    {
-      titolo: 'idue',
-      autore: 'euihi',
-    },
-  ];
+
   cercaLibro() {
-    console.log(this.libri);
+    let libri = this.mioArchivio.archivio
     let nodoSequenza: HTMLInputElement = document.getElementById(
       'cerca'
     ) as HTMLInputElement;
     let sequenza = nodoSequenza.value;
-    const libriCorrispondenti = this.libri.filter((libro) =>
+    const libriCorrispondenti = libri.filter((libro) =>
       (libro.titolo + libro.autore).toLowerCase().includes(sequenza)
     );
 
@@ -41,7 +37,7 @@ export class RicercaComponent implements OnInit {
       console.log(libriCorrispondenti.length);
     }
   }
-  constructor() {}
+  constructor(private db: DatabaseService) {}
 
   ngOnInit() {}
 }
