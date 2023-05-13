@@ -13,7 +13,7 @@ import { AjaxResponse } from 'rxjs/ajax';
 })
 export class InserimentoComponent implements OnInit {
   @Input() visita: number;
-  @Input() mioArchivio: Archivio;
+  @Input() mioArchivio: Archivio = new Archivio(this.db);
   @Output() cambioVista = new EventEmitter<number>();
   @Output() doIndietro = new EventEmitter<number>();
 
