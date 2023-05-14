@@ -1,6 +1,7 @@
 <button *ngIf="visita == 0" (click)="cambiaVista(2)">Ricerca</button> <br />
 <div *ngIf="visita == 2">
-  <input type="text" id="cerca" (input)=cercaLibro() /><br />
+  <input type="text" id="cerca" (input)="cercaLibro()" /><br />
   <div>{{ occorrenze }} corrispondenze</div>
   <button (click)="cambiaVista(0)">Esci</button> <br />
 </div>
+<app-visualizzazione [visita]="visita"></app-visualizzazione>
