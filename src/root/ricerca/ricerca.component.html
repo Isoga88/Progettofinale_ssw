@@ -7,4 +7,7 @@
   <div>{{ occorrenze }} corrispondenze</div>
   <button (click)="cambiaVista(0)">Esci</button> <br />
 </div>
-<app-visualizzazione [visita]="visita"></app-visualizzazione>
+<app-visualizzazione
+  [visita]="visita"
+  [libroScelto]="libroScelto"
+></app-visualizzazione>

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class VisualizzazioneComponent implements OnInit {
   @Input() visita: number;
+  @Input() libroScelto: object;
   constructor() {}
 
   ngOnInit() {}

@@ -15,6 +15,7 @@ export class RicercaComponent implements OnInit {
   @Input() visita: number;
   @Input() mioArchivio: Archivio = new Archivio((this.db));
   @Output() cambioVista = new EventEmitter<number>;
+  libroScelto : object
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
@@ -29,12 +30,11 @@ export class RicercaComponent implements OnInit {
     const libriCorrispondenti = libri.filter((libro) =>
       (libro.titolo + libro.autore).toLowerCase().includes(sequenza)
     );
-    console.log(libriCorrispondenti)
     if (libriCorrispondenti.length === 1) {
       this.cambiaVista(3)
+      this.libroScelto = libriCorrispondenti[0]
     } else {
       this.occorrenze = libriCorrispondenti.length;
-      console.log(libriCorrispondenti.length);
     }
   }
   constructor(private db: DatabaseService) {}
