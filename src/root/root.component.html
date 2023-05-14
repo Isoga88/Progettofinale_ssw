@@ -1,4 +1,4 @@
-<h1>Progetto biblioteca</h1>
+<h1 *ngIf="visita == 0">Gestione biblioteca</h1>
 <app-ricerca
   [visita]="visita"
   (cambioVista)="cambiaVista($event)"

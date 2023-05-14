@@ -44,6 +44,7 @@ export class InserimentoComponent implements OnInit {
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
+    this.cambiaVista(0);
   }
 
   constructor(private db: DatabaseService) {}

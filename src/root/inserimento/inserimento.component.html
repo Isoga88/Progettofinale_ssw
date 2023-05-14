@@ -1,5 +1,6 @@
 <button *ngIf="visita == 0" (click)="cambiaVista(1)">Inserimento</button>
 <div *ngIf="visita == 1">
+  <h1>Inserimento di un nuovo volume</h1>
   <div>
     <label for="autore">Autore:</label>
     <input type="text" id="autore" /><br />
@@ -8,6 +9,6 @@
     <label for="posizione">Posizione:</label>
     <input type="text" id="posizione" /><br />
   </div>
-  <button (click)="inserisciDati()">inserisci</button> <br />
-  <button (click)="cambiaVista(0)">esci</button>
+  <button (click)="inserisciDati()">Inserisci</button> <br />
+  <button (click)="cambiaVista(0)">Esci</button>
 </div>
