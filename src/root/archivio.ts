@@ -15,11 +15,20 @@ export class Archivio {
   }
   public aggiungiLibro(libro: Libro) {
     this.archivio.push(libro);
+    this.db.submitData(this.archivio).subscribe({
+      next: (x: AjaxResponse<any>) => console.log(x.response),
+      error: (err) =>
+        console.error('Observer got an error: ' + JSON.stringify(err)),
+    });
   }
   public eliminalibro(libro: Libro) {
     const filteredArray = this.archivio.filter(
       (item) => item.titolo !== libro.titolo
     );
-    this.db.submitData(filteredArray);
+    this.db.submitData(filteredArray).subscribe({
+      next: (x: AjaxResponse<any>) => console.log(x.response),
+      error: (err) =>
+        console.error('Observer got an error: ' + JSON.stringify(err)),
+    });
   }
 }
