@@ -10,6 +10,9 @@
     <label for="prestito">Nominativo:</label>
     <input type="text" id="prestito" />
   </div>
-  <button (click)="rimuoviLibro()">Rimozione</button> <br />
+  <app-eliminazione
+    [libroScelto]="libroScelto"
+    [mioArchivio]="mioArchivio"
+  ></app-eliminazione>
   <button (click)="cambiaVista(2)">Esci</button>
 </div>

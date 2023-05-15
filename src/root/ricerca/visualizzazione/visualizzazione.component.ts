@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Libro } from '../../libro';
 import { Archivio } from '../../archivio';
 import { DatabaseService } from '../../database.service';
+import {EliminazioneComponent} from './eliminazione/eliminazione.component';
 
 @Component({
   selector: 'app-visualizzazione',
   templateUrl: './visualizzazione.component.html',
   styleUrls: ['./visualizzazione.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, EliminazioneComponent],
 })
 export class VisualizzazioneComponent implements OnInit {
   @Input() visita: number;
@@ -20,9 +21,7 @@ export class VisualizzazioneComponent implements OnInit {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
   }
-  rimuoviLibro(){
-    this.mioArchivio.eliminalibro(this.libroScelto)
-  }
+
   titolo: string;
   autore: string;
   posizione: string;
@@ -32,5 +31,11 @@ export class VisualizzazioneComponent implements OnInit {
     this.titolo = this.libroScelto.titolo;
     this.autore = this.libroScelto.autore;
     this.posizione = this.libroScelto.posizione;
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.libroScelto) {
+      this.autore = changes.libroScelto.currentValue.autore;
+      this.titolo = changes.libroScelto.currentValue.titolo;
+    }
   }
 }
