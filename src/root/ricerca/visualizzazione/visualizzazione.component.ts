@@ -4,13 +4,15 @@ import { Libro } from '../../libro';
 import { Archivio } from '../../archivio';
 import { DatabaseService } from '../../database.service';
 import {EliminazioneComponent} from './eliminazione/eliminazione.component';
+import {PrestitoComponent} from './prestito/prestito.component';
+
 
 @Component({
   selector: 'app-visualizzazione',
   templateUrl: './visualizzazione.component.html',
   styleUrls: ['./visualizzazione.component.css'],
   standalone: true,
-  imports: [CommonModule, EliminazioneComponent],
+  imports: [CommonModule, EliminazioneComponent,PrestitoComponent],
 })
 export class VisualizzazioneComponent implements OnInit {
   @Input() visita: number;

@@ -5,14 +5,13 @@
     <div>Autore: {{ autore }}</div>
     <div>Titolo: {{ titolo }}</div>
   </div>
-  <div>
-    <h2>Prestito</h2>
-    <label for="prestito">Nominativo:</label>
-    <input type="text" id="prestito" />
-  </div>
-  <app-eliminazione
-    [libroScelto]="libroScelto"
-    [mioArchivio]="mioArchivio"
-  ></app-eliminazione>
-  <button (click)="cambiaVista(2)">Esci</button>
+  <app-prestito
+    ><app-prestito>
+      <app-eliminazione
+        [libroScelto]="libroScelto"
+        [mioArchivio]="mioArchivio"
+      ></app-eliminazione>
+      <button (click)="cambiaVista(2)">Esci</button>
+    </app-prestito></app-prestito
+  >
 </div>
