@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Libro } from '../../libro';
 
 @Component({
   selector: 'app-visualizzazione',
@@ -10,8 +11,21 @@ import { CommonModule } from '@angular/common';
 })
 export class VisualizzazioneComponent implements OnInit {
   @Input() visita: number;
-  @Input() libroScelto: object;
-  constructor() {}
+  @Input() libroScelto: Libro;
+  @Output() cambioVista = new EventEmitter<number>;
 
-  ngOnInit() {}
+  cambiaVista(numero: number) {
+    this.visita = numero;
+    this.cambioVista.emit(this.visita);
+  }
+  titolo: string;
+  autore: string;
+  posizione: string;
+
+  constructor() {}
+  ngOnInit() {
+    this.titolo = this.libroScelto.titolo;
+    this.autore = this.libroScelto.autore;
+    this.posizione = this.libroScelto.posizione;
+  }
 }

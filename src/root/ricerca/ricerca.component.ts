@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Archivio } from '../archivio';
 import { DatabaseService } from '../database.service';
 import {VisualizzazioneComponent} from './visualizzazione/visualizzazione.component'
+import { Libro } from '../libro';
 
 @Component({
   selector: 'app-ricerca',
@@ -15,7 +16,7 @@ export class RicercaComponent implements OnInit {
   @Input() visita: number;
   @Input() mioArchivio: Archivio = new Archivio((this.db));
   @Output() cambioVista = new EventEmitter<number>;
-  libroScelto : object
+  libroScelto : Libro
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);

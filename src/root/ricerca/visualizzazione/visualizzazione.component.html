@@ -1,4 +1,18 @@
 <div *ngIf="visita == 3">
-  <h1>Descrizione del documento</h1>
-  <div></div>
+  <div>
+    <h1>Descrizione del documento</h1>
+    <div>{{ posizione }}</div>
+    <br />
+    <div>Autore: {{ autore }}</div>
+    <br />
+    <div>TTitolo: {{ titolo }}</div>
+    <br />
+  </div>
+  <div>
+    <h2>Prestito</h2>
+    <label for="prestito">Nominativo:</label>
+    <input type="text" id="prestito" />
+    <button>Rimozione</button>
+  </div>
+  <button (click)="cambiaVista(0)">Esci</button>
 </div>

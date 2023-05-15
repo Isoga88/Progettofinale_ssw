@@ -7,7 +7,9 @@
   <div>{{ occorrenze }} corrispondenze</div>
   <button (click)="cambiaVista(0)">Esci</button> <br />
 </div>
-<app-visualizzazione
-  [visita]="visita"
-  [libroScelto]="libroScelto"
-></app-visualizzazione>
+<div *ngIf="libroScelto">
+  <app-visualizzazione
+    [visita]="visita"
+    [libroScelto]="libroScelto"
+  ></app-visualizzazione>
+</div>
