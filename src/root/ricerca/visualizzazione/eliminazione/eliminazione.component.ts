@@ -14,7 +14,6 @@ export class EliminazioneComponent implements OnInit {
   @Input() mioArchivio: Archivio = new Archivio(this.db);
 
   rimuoviLibro() {
-    console.log(this.mioArchivio);
     this.mioArchivio.eliminalibro(this.libroScelto);
   }
   constructor(private db: DatabaseService) {}

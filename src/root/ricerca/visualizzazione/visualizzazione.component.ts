@@ -36,6 +36,8 @@ export class VisualizzazioneComponent implements OnInit {
     if (changes.libroScelto) {
       this.autore = changes.libroScelto.currentValue.autore;
       this.titolo = changes.libroScelto.currentValue.titolo;
+      console.log(changes.libroScelto.currentValue)
+      this.posizione = changes.libroScelto.currentValue.posizione;
     }
   }
 }
