@@ -5,13 +5,10 @@
     <div>Autore: {{ autore }}</div>
     <div>Titolo: {{ titolo }}</div>
   </div>
-  <app-prestito
-    ><app-prestito>
-      <app-eliminazione
-        [libroScelto]="libroScelto"
-        [mioArchivio]="mioArchivio"
-      ></app-eliminazione>
-      <button (click)="cambiaVista(2)">Esci</button>
-    </app-prestito></app-prestito
-  >
+  <app-prestito><app-prestito>
+  <app-eliminazione
+    [libroScelto]="libroScelto"
+    [mioArchivio]="mioArchivio"
+  ></app-eliminazione>
+  <button (click)="cambiaVista(2)">Esci</button>
 </div>

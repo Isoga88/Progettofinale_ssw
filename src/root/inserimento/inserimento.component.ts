@@ -35,7 +35,7 @@ export class InserimentoComponent implements OnInit {
       titolo.value,
       autore.value,
       posizione.value,
-      'no'
+      'undefined'
     );
     this.mioArchivio.aggiungiLibro(libretto);
     this.cambiaVista(0);
