@@ -16,4 +16,10 @@ export class Archivio {
   public aggiungiLibro(libro: Libro) {
     this.archivio.push(libro);
   }
+  public eliminalibro(libro: Libro) {
+    const filteredArray = this.archivio.filter(
+      (item) => item.titolo !== libro.titolo
+    );
+    this.db.submitData(filteredArray);
+  }
 }

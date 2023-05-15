@@ -2,17 +2,14 @@
   <div>
     <h1>Descrizione del documento</h1>
     <div>{{ posizione }}</div>
-    <br />
     <div>Autore: {{ autore }}</div>
-    <br />
-    <div>TTitolo: {{ titolo }}</div>
-    <br />
+    <div>Titolo: {{ titolo }}</div>
   </div>
   <div>
     <h2>Prestito</h2>
     <label for="prestito">Nominativo:</label>
     <input type="text" id="prestito" />
-    <button>Rimozione</button>
   </div>
-  <button (click)="cambiaVista(0)">Esci</button>
+  <button (click)="rimuoviLibro()">Rimozione</button> <br />
+  <button (click)="cambiaVista(2)">Esci</button>
 </div>
