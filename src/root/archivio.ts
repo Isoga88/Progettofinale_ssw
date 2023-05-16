@@ -32,11 +32,16 @@ export class Archivio {
     });
   }
   public prestaLibro(libro: Libro, prestito: string) {
-    const libroCambio = this.archivio.filter(
-      (item) => item.titolo == libro.titolo
+    const mioLibro = this.archivio.find((o) => o.titolo == libro.titolo);
+    const indiceLibro = this.archivio.findIndex(
+      (o) => o.titolo === libro.titolo
     );
-    this.eliminalibro(libroCambio[0]);
-    libroCambio[0].prestito = prestito;
-    this.aggiungiLibro(libroCambio[0]);
+    mioLibro.prestito = prestito;
+    this.archivio.splice(indiceLibro, 1, mioLibro);
+    this.db.submitData(this.archivio).subscribe({
+      next: (x: AjaxResponse<any>) => console.log(x.response),
+      error: (err) =>
+        console.error('Observer got an error: ' + JSON.stringify(err)),
+    });
   }
 }

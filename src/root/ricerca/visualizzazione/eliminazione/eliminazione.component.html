@@ -1,1 +1,4 @@
-<button (click)="rimuoviLibro()">Rimozione</button> <br />
+<button (click)="rimuoviLibro()" *ngIf="libroScelto.prestito == 'undefined'">
+  Rimozione
+</button>
+<br />
