@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DatabaseService } from '../../../database.service';
+import { Archivio } from '../../../archivio';
+import { Libro } from '../../../libro';
 
 @Component({
   selector: 'app-prestito',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
 })
 export class PrestitoComponent implements OnInit {
-  constructor() {}
+  @Input() libroScelto: Libro;
+  @Input() mioArchivio: Archivio = new Archivio(this.db);
+  doPrestito() {
+    var nomePrestito: HTMLInputElement = document.getElementById(
+      'nomePrestito'
+    ) as HTMLInputElement;
+    this.mioArchivio.prestaLibro(this.libroScelto, nomePrestito.value);
+  }
+  constructor(private db: DatabaseService) {}
 
   ngOnInit() {}
 }

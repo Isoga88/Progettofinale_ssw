@@ -5,7 +5,7 @@
     <div>Autore: {{ autore }}</div>
     <div>Titolo: {{ titolo }}</div>
   </div>
-  <app-prestito><app-prestito>
+  <app-prestito [libroScelto]="libroScelto"></app-prestito>
   <app-eliminazione
     [libroScelto]="libroScelto"
     [mioArchivio]="mioArchivio"

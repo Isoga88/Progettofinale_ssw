@@ -27,19 +27,21 @@ export class VisualizzazioneComponent implements OnInit {
   titolo: string;
   autore: string;
   posizione: string;
+  prestito:string;
 
   constructor( private db: DatabaseService) {}
   ngOnInit() {
     this.titolo = this.libroScelto.titolo;
     this.autore = this.libroScelto.autore;
     this.posizione = this.libroScelto.posizione;
+    this.prestito=this.libroScelto.prestito
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes.libroScelto) {
       this.autore = changes.libroScelto.currentValue.autore;
       this.titolo = changes.libroScelto.currentValue.titolo;
-      console.log(changes.libroScelto.currentValue)
       this.posizione = changes.libroScelto.currentValue.posizione;
+      this.prestito = changes.libroScelto.currentValue.prestito;
     }
   }
 }

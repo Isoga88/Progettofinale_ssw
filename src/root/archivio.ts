@@ -31,4 +31,12 @@ export class Archivio {
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
   }
+  public prestaLibro(libro: Libro, prestito: string) {
+    const libroCambio = this.archivio.filter(
+      (item) => item.titolo == libro.titolo
+    );
+    this.eliminalibro(libroCambio[0]);
+    libroCambio[0].prestito = prestito;
+    this.aggiungiLibro(libroCambio[0]);
+  }
 }
