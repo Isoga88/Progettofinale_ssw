@@ -20,6 +20,10 @@ export class PrestitoComponent implements OnInit {
     ) as HTMLInputElement;
     this.mioArchivio.prestaLibro(this.libroScelto, nomePrestito.value);
   }
+  doResto() {
+    this.mioArchivio.prestaLibro(this.libroScelto, 'undefined');
+  }
+  
   constructor(private db: DatabaseService) {}
 
   ngOnInit() {}

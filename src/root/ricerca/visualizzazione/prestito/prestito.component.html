@@ -4,5 +4,5 @@
   <input type="text" id="nomePrestito" (keyup.enter)="doPrestito()" /> <br />
 </div>
 <div *ngIf="libroScelto.prestito != 'undefined'">
-  <button>Restituisci</button>
+  <button (click)="doResto()">Restituisci</button>
 </div>
