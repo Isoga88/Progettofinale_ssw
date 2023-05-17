@@ -5,10 +5,16 @@
     <div>Autore: {{ autore }}</div>
     <div>Titolo: {{ titolo }}</div>
   </div>
-  <app-prestito [libroScelto]="libroScelto"></app-prestito>
+  <app-prestito
+    [libroScelto]="libroScelto"
+    [visita]="visita"
+    (cambioVista)="cambiaVista($event)"
+  ></app-prestito>
   <app-eliminazione
     [libroScelto]="libroScelto"
     [mioArchivio]="mioArchivio"
+    [visita]="visita"
+    (cambioVista)="cambiaVista($event)"
   ></app-eliminazione>
   <button (click)="cambiaVista(2)">Esci</button>
 </div>

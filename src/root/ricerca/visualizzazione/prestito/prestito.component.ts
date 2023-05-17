@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DatabaseService } from '../../../database.service';
 import { Archivio } from '../../../archivio';
 import { Libro } from '../../../libro';
@@ -12,16 +12,24 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class PrestitoComponent implements OnInit {
+  @Input() visita: number;
   @Input() libroScelto: Libro;
   @Input() mioArchivio: Archivio = new Archivio(this.db);
+  @Output() cambioVista = new EventEmitter<number>;
+  cambiaVista(numero: number) {
+    this.visita = numero;
+    this.cambioVista.emit(this.visita);
+  }
   doPrestito() {
     var nomePrestito: HTMLInputElement = document.getElementById(
       'nomePrestito'
     ) as HTMLInputElement;
     this.mioArchivio.prestaLibro(this.libroScelto, nomePrestito.value);
+    this.cambiaVista(2)
   }
   doResto() {
     this.mioArchivio.prestaLibro(this.libroScelto, 'undefined');
+    this.cambiaVista(2)
   }
   
   constructor(private db: DatabaseService) {}

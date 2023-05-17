@@ -22,6 +22,7 @@ export class VisualizzazioneComponent implements OnInit {
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
+    
   }
 
   titolo: string;
