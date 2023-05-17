@@ -16,7 +16,6 @@ export class RicercaComponent implements OnInit {
   @Input() visita: number;
   @Input() mioArchivio: Archivio = new Archivio((this.db));
   @Output() cambioVista = new EventEmitter<number>;
-  @Output() cambioLibro = new EventEmitter<object>;
 
   libroScelto : Libro
   cambiaVista(numero: number) {
@@ -35,9 +34,7 @@ export class RicercaComponent implements OnInit {
     );
     if (libriCorrispondenti.length === 1) {
       this.cambiaVista(3)
-      this.libroScelto = libriCorrispondenti[0]
-      this.cambioLibro.emit(this.libroScelto);
-      
+      this.libroScelto = libriCorrispondenti[0]      
     } else {
       this.occorrenze = libriCorrispondenti.length;
     }
