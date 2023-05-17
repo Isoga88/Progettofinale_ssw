@@ -26,7 +26,10 @@ export class Archivio {
       (item) => item.titolo !== libro.titolo
     );
     this.db.submitData(filteredArray).subscribe({
-      next: (x: AjaxResponse<any>) => console.log(x.response),
+      next: (x: AjaxResponse<any>) => {
+        this.archivio = filteredArray;
+        console.log(x.response);
+      },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
