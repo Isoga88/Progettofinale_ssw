@@ -22,7 +22,6 @@ export class VisualizzazioneComponent implements OnInit {
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
-
   }
 
   titolo: string;
@@ -35,7 +34,7 @@ export class VisualizzazioneComponent implements OnInit {
     this.titolo = this.libroScelto.titolo;
     this.autore = this.libroScelto.autore;
     this.posizione = this.libroScelto.posizione;
-    this.prestito=this.libroScelto.prestito
+    this.prestito = this.libroScelto.prestito
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes.libroScelto) {

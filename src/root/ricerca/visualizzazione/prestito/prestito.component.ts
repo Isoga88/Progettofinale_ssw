@@ -16,7 +16,8 @@ export class PrestitoComponent implements OnInit {
   @Input() libroScelto: Libro;
   @Input() mioArchivio: Archivio = new Archivio(this.db);
   @Output() cambioVista = new EventEmitter<number>;
-  prestito: string;
+  @Output() cambioPrestito = new EventEmitter<string>;
+
   cambiaVista(numero: number) {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
@@ -26,21 +27,16 @@ export class PrestitoComponent implements OnInit {
       'nomePrestito'
     ) as HTMLInputElement;
     this.mioArchivio.prestaLibro(this.libroScelto, nomePrestito.value);
-    this.cambiaVista(2)
+    this.cambiaVista(0)
+    new this.cambioPrestito(nomePrestito.value)
   }
   doResto() {
     this.mioArchivio.prestaLibro(this.libroScelto, 'undefined');
-    this.cambiaVista(2)
+    this.cambiaVista(0)
   }
   
   constructor(private db: DatabaseService) {}
 
   ngOnInit() {
-    this.prestito=this.libroScelto.prestito
-  }
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.libroScelto) {
-      this.prestito = changes.libroScelto.currentValue.prestito;
-    }
   }
 }
