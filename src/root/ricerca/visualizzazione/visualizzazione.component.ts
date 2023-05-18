@@ -23,6 +23,10 @@ export class VisualizzazioneComponent implements OnInit {
     this.visita = numero;
     this.cambioVista.emit(this.visita);
   }
+  cambiaPrestito(prestito){
+    console.log(prestito, this.libroScelto)
+    this.libroScelto.prestito = prestito;
+  }
 
   titolo: string;
   autore: string;

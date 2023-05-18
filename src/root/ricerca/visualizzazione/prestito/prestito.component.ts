@@ -15,8 +15,9 @@ export class PrestitoComponent implements OnInit {
   @Input() visita: number;
   @Input() libroScelto: Libro;
   @Input() mioArchivio: Archivio = new Archivio(this.db);
-  @Output() cambioVista = new EventEmitter<number>;
   @Output() cambioPrestito = new EventEmitter<string>;
+  @Output() cambioVista = new EventEmitter<number>;
+
 
   cambiaVista(numero: number) {
     this.visita = numero;
@@ -27,12 +28,15 @@ export class PrestitoComponent implements OnInit {
       'nomePrestito'
     ) as HTMLInputElement;
     this.mioArchivio.prestaLibro(this.libroScelto, nomePrestito.value);
+    this.cambioPrestito.emit(nomePrestito.value)
+
     this.cambiaVista(0)
-    new this.cambioPrestito(nomePrestito.value)
   }
   doResto() {
     this.mioArchivio.prestaLibro(this.libroScelto, 'undefined');
     this.cambiaVista(0)
+    this.cambioPrestito.emit('undefined')
+
   }
   
   constructor(private db: DatabaseService) {}

@@ -1,8 +1,8 @@
-<div *ngIf="prestito == 'undefined'">
+<div *ngIf="libroScelto.prestito == 'undefined'">
   <h2>Prestito</h2>
   <label for="prestito">Nominativo:</label>
   <input type="text" id="nomePrestito" (keyup.enter)="doPrestito()" /> <br />
 </div>
-<div *ngIf="prestito != 'undefined'">
+<div *ngIf="libroScelto.prestito != 'undefined'">
   <button (click)="doResto()">Restituisci</button>
 </div>
