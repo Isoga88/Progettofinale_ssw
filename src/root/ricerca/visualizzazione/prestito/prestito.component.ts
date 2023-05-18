@@ -30,11 +30,11 @@ export class PrestitoComponent implements OnInit {
     this.mioArchivio.prestaLibro(this.libroScelto, nomePrestito.value);
     this.cambioPrestito.emit(nomePrestito.value)
 
-    this.cambiaVista(0)
+    this.cambiaVista(2)
   }
   doResto() {
     this.mioArchivio.prestaLibro(this.libroScelto, 'undefined');
-    this.cambiaVista(0)
+    this.cambiaVista(2)
     this.cambioPrestito.emit('undefined')
 
   }
