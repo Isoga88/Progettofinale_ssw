@@ -20,14 +20,6 @@ export class RootComponent implements OnInit {
   cambiaVista(numero: number) {
     this.visita = numero;
   }
-  funzione() {
-    this.db.getData().subscribe({
-      next: (x: AjaxResponse<any>) => console.log(x.response),
-      error: (err) =>
-        console.error('Observer got an error: ' + JSON.stringify(err)),
-    });
-  }
-
   constructor(private db: DatabaseService) {}
 
   ngOnInit() {}
