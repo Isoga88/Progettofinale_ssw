@@ -24,7 +24,6 @@ export class VisualizzazioneComponent implements OnInit {
     this.cambioVista.emit(this.visita);
   }
   cambiaPrestito(prestito){
-    console.log(prestito, this.libroScelto)
     this.libroScelto.prestito = prestito;
   }
 

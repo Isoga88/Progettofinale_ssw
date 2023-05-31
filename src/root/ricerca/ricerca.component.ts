@@ -44,7 +44,6 @@ export class RicercaComponent implements OnInit {
       this.libroScelto = libriCorrispondenti[0]      
     } else {
       this.occorrenze = libriCorrispondenti.length;
-      console.log(libriCorrispondenti)
     }
   }
   constructor(private db: DatabaseService) {}
