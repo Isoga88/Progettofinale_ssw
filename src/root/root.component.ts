@@ -20,6 +20,7 @@ export class RootComponent implements OnInit {
   cambiaVista(numero: number) {
     this.visita = numero;
   }
+
   constructor(private db: DatabaseService) {}
 
   ngOnInit() {}
